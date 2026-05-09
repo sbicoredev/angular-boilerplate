@@ -8,6 +8,8 @@ import {
 } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
 
+import { provideZard } from "@/core/provider/providezard";
+
 import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
@@ -15,5 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
+
+    provideZard(),
   ],
 };
