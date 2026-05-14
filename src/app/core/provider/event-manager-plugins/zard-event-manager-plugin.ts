@@ -24,7 +24,12 @@ import { EventManagerPlugin } from "@angular/platform-browser";
  * (click.stop)="handler()"
  */
 export class ZardEventManagerPlugin extends EventManagerPlugin {
-  #keywords = ["prevent", "stop", "stop-immediate", "prevent-with-stop"];
+  readonly #keywords = [
+    "prevent",
+    "stop",
+    "stop-immediate",
+    "prevent-with-stop",
+  ];
 
   override supports(eventName: string): boolean {
     return this.#keywords.some((keyword) => eventName.endsWith(`.${keyword}`));
@@ -35,7 +40,6 @@ export class ZardEventManagerPlugin extends EventManagerPlugin {
     eventName: string,
     handler: (event: Event) => void,
     options?: ListenerOptions
-    // eslint-disable-next-line
   ): Function {
     const { event, keyword, keys } = this.#provideEventFrom(
       eventName,
