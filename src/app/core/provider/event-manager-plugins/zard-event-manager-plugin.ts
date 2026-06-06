@@ -106,7 +106,7 @@ export class ZardEventManagerPlugin extends EventManagerPlugin {
   }
 
   #extractKeys(substring: string): string[] {
-    const stringList = substring.substring(1, substring.length - 1);
+    const stringList = substring.slice(1, substring.length - 1);
     return stringList
       .split(",")
       .map((raw) => {
