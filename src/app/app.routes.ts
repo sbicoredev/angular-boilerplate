@@ -1,3 +1,17 @@
 import type { Routes } from "@angular/router";
 
-export const routes: Routes = [];
+import { MainLayout } from "./layouts/main-layout/main-layout";
+
+export const routes: Routes = [
+  {
+    path: "",
+    component: MainLayout,
+    children: [
+      {
+        path: "",
+        loadComponent: () =>
+          import("./pages/home-page/home-page").then((m) => m.HomePage),
+      },
+    ],
+  },
+];

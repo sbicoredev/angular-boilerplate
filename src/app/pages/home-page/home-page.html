@@ -1,0 +1,41 @@
+<div app-container>
+  <section class="relative px-6 py-24 sm:py-32 lg:px-8">
+    <div class="mx-auto max-w-4xl text-center">
+      <div class="mb-8 flex flex-wrap justify-center gap-2">badges</div>
+
+      <h1 class="font-bold text-4xl text-foreground tracking-tight sm:text-6xl lg:text-7xl">
+        Modern SaaS
+        <span class="block text-primary">Starter Kit</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-8">
+        Ship your SaaS faster with pre-configured authentication, database, and payments. Built on
+        TanStack Start with React 19, TypeScript, and edge-ready infrastructure. Everything you need
+        to launch your next project.
+      </p>
+
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a routerLink="/">
+          <button z-button class="group" size="lg">
+            Get Started
+            <ng-icon
+              name="lucideArrowRight"
+              class="transition-transform group-hover:translate-x-1"
+            />
+          </button>
+        </a>
+
+        <button z-button zSize="lg" title="github link" class="leading-0">
+          <ng-icon name="lucideUser" />
+          View on GitHub
+        </button>
+      </div>
+    </div>
+
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-1155/678 w-36.125rem -translate-x-1/2 rotate-30 bg-linear-to-tr from-primary to-secondary opacity-20 sm:left-[calc(50%-30rem)] sm:w-288.75"
+      ></div>
+    </div>
+  </section>
+</div>

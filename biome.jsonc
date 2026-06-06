@@ -24,8 +24,13 @@
         "useConsistentMemberAccessibility": "off"
       },
       "complexity": {
+        "noBannedTypes": "warn",
         "noStaticOnlyClass": "off",
         "useLiteralKeys": "off"
+      },
+      "performance": {
+        "noBarrelFile": "warn",
+        "useTopLevelRegex": "warn"
       },
       "suspicious": {
         "noEmptyBlockStatements": "off"
@@ -67,7 +72,7 @@
               ":PACKAGE:",
               ":BLANK_LINE:",
               ":ALIAS:",
-              "~/**",
+              ["~/**", "@/**"],
               ":BLANK_LINE:",
               ":PATH:",
               ":BLANK_LINE:"
