@@ -1,0 +1,81 @@
+<div class="fixed z-50 w-full px-2" [attr.data-state]="menuState() ? 'active' : ''">
+  <div [class]="scrollEffectClasses()">
+    <div class="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+      <div class="flex w-full justify-between lg:w-auto">
+        <a aria-label="home" class="space-x-2" routerLink="/">
+          <img class="size-6" src="logo.png" />
+        </a>
+
+        <div class="flex lg:hidden items-center gap-3">
+          <button z-button zType="ghost" zSize="icon" (click)="toggleTheme()">
+            <span class="sr-only">Toggle theme</span>
+            <ng-icon name="lucideSunMoon" class="" />
+          </button>
+
+          <button
+            [aria-label]="menuState() ? 'Close Menu' : 'Open Menu'"
+            class="relative z-20 -m-2.5 size-8 flex items-center justify-center cursor-pointer p-2.5 lg:hidden"
+            type="button"
+            (click)="toggleMenu()"
+          >
+            <ng-icon
+              name="lucideMenu"
+              class="absolute inset-0 m-auto size-6 in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 duration-200"
+            />
+            <ng-icon
+              name="lucideX"
+              class="absolute inset-0 m-auto size-6 -rotate-180 in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 scale-0 in-data-[state=active]:opacity-100 opacity-0 duration-200"
+            />
+          </button>
+        </div>
+      </div>
+
+      <nav class="absolute inset-0 m-auto hidden size-fit lg:block">
+        <ul class="flex gap-8 text-sm">
+          @for (item of menuItems; track item.name) {
+            <li>
+              <a
+                class="block text-muted-foreground duration-150 hover:text-accent-foreground"
+                [routerLink]="item.href"
+              >
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <div
+        class="mb-6 in-data-[state=active]:block hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border bg-background p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:in-data-[state=active]:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent"
+      >
+        <nav class="lg:hidden">
+          <ul class="space-y-6 text-base">
+            @for (item of menuItems; track item.name) {
+              <li>
+                <a
+                  class="block text-muted-foreground duration-150 hover:text-accent-foreground"
+                  [routerLink]="item.href"
+                >
+                  <span>{{ item.name }}</span>
+                </a>
+              </li>
+            }
+            <li class="flex gap-2">
+              <button z-button>Login</button>
+              <button z-button>Sign Up</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="items-center hidden gap-2 lg:flex">
+        <button z-button zType="ghost" zSize="icon" (click)="toggleTheme()">
+          <span class="sr-only">Toggle theme</span>
+          <ng-icon name="lucideSunMoon" class="" />
+        </button>
+        <button z-button>Login</button>
+        <button z-button>Get started</button>
+      </div>
+    </div>
+  </div>
+</div>
