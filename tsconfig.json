@@ -18,7 +18,13 @@
       "@/ui/utils": ["./src/app/shared/components/ui/utils/src/index.ts"],
       "@/ui/button": ["./src/app/shared/components/ui/button/src/index.ts"],
       "@/ui/card": ["./src/app/shared/components/ui/card/src/index.ts"],
-      "@/ui/icon": ["./src/app/shared/components/ui/icon/src/index.ts"]
+      "@/ui/icon": ["./src/app/shared/components/ui/icon/src/index.ts"],
+      "@/ui/field": ["./src/app/shared/components/ui/field/src/index.ts"],
+      "@/ui/input": ["./src/app/shared/components/ui/input/src/index.ts"],
+      "@/ui/label": ["./src/app/shared/components/ui/label/src/index.ts"],
+      "@/ui/separator": [
+        "./src/app/shared/components/ui/separator/src/index.ts"
+      ]
     }
   },
   "angularCompilerOptions": {

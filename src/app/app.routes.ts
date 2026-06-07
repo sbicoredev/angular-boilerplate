@@ -1,5 +1,6 @@
 import type { Routes } from "@angular/router";
 
+import { AuthLayout } from "./layouts/auth-layout/auth-layout";
 import { MainLayout } from "./layouts/main-layout/main-layout";
 
 export const routes: Routes = [
@@ -11,6 +12,19 @@ export const routes: Routes = [
         path: "",
         loadComponent: () =>
           import("./pages/home-page/home-page").then((m) => m.HomePage),
+      },
+    ],
+  },
+  {
+    path: "auth",
+    component: AuthLayout,
+    children: [
+      {
+        path: "signin",
+        loadComponent: () =>
+          import("./pages/auth/signin-page/signin-page").then(
+            (m) => m.SigninPage
+          ),
       },
     ],
   },
