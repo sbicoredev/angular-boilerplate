@@ -2,9 +2,9 @@ import { Component, computed, input, ViewEncapsulation } from "@angular/core";
 import { cva, VariantProps } from "class-variance-authority";
 import type { ClassValue } from "clsx";
 
-import { mergeClasses } from "@/shared/utils/merge-classes";
+import { hlm } from "@/ui/utils";
 
-export const containerVariants = cva(mergeClasses("mx-auto p-4 lg:p-6"), {
+export const containerVariants = cva("mx-auto p-4 lg:p-6", {
   variants: {
     variant: {
       constrained: "max-w-7xl",
@@ -45,6 +45,6 @@ export class Container {
   readonly variant = input<ContainerVariants>("constrained");
 
   protected readonly classes = computed(() =>
-    mergeClasses(containerVariants({ variant: this.variant() }), this.class())
+    hlm(containerVariants({ variant: this.variant() }), this.class())
   );
 }

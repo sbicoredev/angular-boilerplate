@@ -3,11 +3,11 @@ import { NgIcon, provideIcons } from "@ng-icons/core";
 import { lucideArrowRight, lucideUser } from "@ng-icons/lucide";
 
 import { Container } from "@/shared/components/container/container";
-import { ZardButtonComponent } from "@/shared/components/ui/button";
+import { HlmButtonImports } from "@/ui/button";
 
 @Component({
   selector: "app-home-page",
-  imports: [NgIcon, Container, ZardButtonComponent],
+  imports: [NgIcon, Container, HlmButtonImports],
   templateUrl: "./home-page.html",
   viewProviders: provideIcons({
     lucideUser,
