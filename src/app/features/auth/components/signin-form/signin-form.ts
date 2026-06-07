@@ -12,26 +12,24 @@ import { NgIcon, provideIcons } from "@ng-icons/core";
 import { lucideGithub } from "@ng-icons/lucide";
 
 import { HlmButtonImports } from "@/ui/button";
-import { HlmCardImports } from "@/ui/card";
 import { HlmFieldImports } from "@/ui/field";
 import { HlmInputImports } from "@/ui/input";
 
 @Component({
-  selector: "app-signin-page",
+  selector: "app-signin-form",
   imports: [
     FormRoot,
     FormField,
     NgIcon,
     RouterLink,
-    HlmCardImports,
     HlmFieldImports,
     HlmInputImports,
     HlmButtonImports,
   ],
-  templateUrl: "./signin-page.html",
+  templateUrl: "./signin-form.html",
   viewProviders: provideIcons({ lucideGithub }),
 })
-export class SigninPage {
+export class SigninForm {
   protected readonly _model = signal({
     email: "",
     password: "",

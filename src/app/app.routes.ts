@@ -22,7 +22,7 @@ export const routes: Routes = [
       {
         path: "signin",
         loadComponent: () =>
-          import("./pages/auth/signin-page/signin-page").then(
+          import("./features/auth/pages/signin-page/signin-page").then(
             (m) => m.SigninPage
           ),
       },

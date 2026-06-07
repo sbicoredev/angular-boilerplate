@@ -12,5 +12,5 @@ import { Theme } from "./core/services/theme";
 })
 export class App {
   protected readonly title = signal("angular-boilerplate");
-  private readonly _themeService = inject(Theme);
+  protected readonly _themeService = inject(Theme);
 }
