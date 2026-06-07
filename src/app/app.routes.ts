@@ -28,4 +28,17 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: "auth",
+    component: AuthLayout,
+    children: [
+      {
+        path: "signup",
+        loadComponent: () =>
+          import("./features/auth/pages/signup-page/signup-page").then(
+            (m) => m.SignupPage
+          ),
+      },
+    ],
+  },
 ];

@@ -1,0 +1,82 @@
+<form [formRoot]="form">
+  <div hlmFieldGroup>
+    <div hlmField>
+      <label hlmFieldLabel for="name">Full Name</label>
+      <input hlmInput type="text" id="name" placeholder="John Doe" [formField]="form.name" />
+      @if (form.name().touched()) {
+        @for (error of form.name().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
+      }
+    </div>
+    <div hlmField>
+      <label hlmFieldLabel for="email">Email</label>
+      <input
+        hlmInput
+        type="email"
+        id="email"
+        placeholder="m@example.com"
+        [formField]="form.email"
+      />
+      @if (!(form.email().touched() && form.email().invalid())) {
+        <div hlmFieldDescription>
+          We'll use this to contact you. We will not share your email with anyone else.
+        </div>
+      }
+      @if (form.email().touched()) {
+        @for (error of form.email().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
+      }
+    </div>
+    <div hlmField>
+      <div class="flex items-center">
+        <label hlmFieldLabel for="password">Password</label>
+        <a
+          hlmFieldDescription
+          class="ml-auto text-sm underline-offset-4 hover:underline"
+          routerLink="/auth/forgot-password"
+        >
+          Forgot password?
+        </a>
+      </div>
+      <input hlmInput type="password" id="password" [formField]="form.password" />
+      @if (form.password().touched()) {
+        @for (error of form.password().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
+      }
+    </div>
+    <div hlmField>
+      <label hlmFieldLabel for="confirmPassword">Confirm Password</label>
+      <input hlmInput type="password" id="confirmPassword" [formField]="form.confirmPassword" />
+      @if (form.confirmPassword().touched()) {
+        @for (error of form.confirmPassword().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
+      }
+    </div>
+    <div hlmField>
+      <button hlmBtn type="submit" [disabled]="form().invalid()">Signup</button>
+    </div>
+    <hlm-field-separator>Or continue with</hlm-field-separator>
+    <div hlmField>
+      <button hlmBtn variant="outline" type="button">
+        <ng-icon name="lucideGithub" class="text-xl" />
+        Login with GitHub
+      </button>
+      <p hlmFieldDescription class="text-center">
+        Already have an account?
+        <a routerLink="/auth/signin">Signin</a>
+      </p>
+    </div>
+  </div>
+</form>
