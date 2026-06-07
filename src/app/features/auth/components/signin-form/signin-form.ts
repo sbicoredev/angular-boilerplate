@@ -37,21 +37,19 @@ export class SigninForm {
 
   public readonly form = form(
     this._model,
-    (sp) => {
-      required(sp.email);
-      email(sp.email);
-      required(sp.password);
-      minLength(sp.password, 6);
+    (s) => {
+      required(s.email, { message: "Email is required" });
+      email(s.email, { message: "Email is invalid" });
+      required(s.password, { message: "Password is required" });
+      minLength(s.password, 6, {
+        message: "Password must be at least 6 characters",
+      });
     },
-    {
-      submission: {
-        action: async () => {
-          const model = await this._model();
-          console.log(model);
-        },
-      },
-    }
+    { submission: { action: async () => this.handleSubmit() } }
   );
 
-  public login() {}
+  public handleSubmit() {
+    const model = this._model();
+    console.log(model);
+  }
 }

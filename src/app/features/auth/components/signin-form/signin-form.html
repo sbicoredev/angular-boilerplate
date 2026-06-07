@@ -9,10 +9,12 @@
         placeholder="m@example.com"
         [formField]="form.email"
       />
-      @for (error of form.email().errors(); track error) {
-        <p hlmFieldError [attr.validator]="error.kind">
-          {{ error.message }}
-        </p>
+      @if (form.email().touched()) {
+        @for (error of form.email().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
       }
     </div>
     <div hlmField>
@@ -27,14 +29,16 @@
         </a>
       </div>
       <input hlmInput type="password" id="password" [formField]="form.password" />
-      @for (error of form.password().errors(); track error) {
-        <p hlmFieldError [attr.validator]="error.kind">
-          {{ error.message }}
-        </p>
+      @if (form.password().touched()) {
+        @for (error of form.password().errors(); track error) {
+          <p hlmFieldError [attr.validator]="error.kind">
+            {{ error.message }}
+          </p>
+        }
       }
     </div>
     <div hlmField>
-      <button hlmBtn type="submit" [disabled]="form().invalid()">Login</button>
+      <button hlmBtn type="submit" [disabled]="form().invalid()">Signin</button>
     </div>
     <hlm-field-separator>Or continue with</hlm-field-separator>
     <div hlmField>
